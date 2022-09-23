@@ -1,6 +1,4 @@
 # Docker
-# Build a Docker image
-# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
 trigger:
 - main
@@ -21,9 +19,11 @@ stages:
       vmImage: ubuntu-latest
     steps:
     - task: Docker@2
-      displayName: Build an image
       inputs:
-        command: build
-        dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-        tags: |
-          $(tag)
+        command: 'build'
+        Dockerfile: '**/Dockerfile'
+    - task: Docker@2
+      inputs:
+        command: 'start'
+        arguments: '-e API_TOKEN=$(API_TOKEN)'
+        container: 'magikker'

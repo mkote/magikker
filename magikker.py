@@ -3,10 +3,12 @@
 import discord
 from io import BytesIO
 from wand import image
+import os
 
 intents = discord.Intents.default()
 intents.message_content = True
 
+token = os.getenv('API_TOKEN')
 client = discord.Client(intents=intents)
 
 @client.event
@@ -56,8 +58,7 @@ async def on_message(message):
             await message.channel.send(file=discordFile)
 
 
-# TODO: Use secrets or ENV
-client.run('insert token here')
+client.run(token)
 
 
 

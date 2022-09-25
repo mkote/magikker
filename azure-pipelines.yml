@@ -14,5 +14,6 @@ stages:
     displayName: Build
     pool: rpi
     steps:
+      - bash: whoami
       - bash: make build
       - bash: make run

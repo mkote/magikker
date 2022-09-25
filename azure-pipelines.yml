@@ -6,24 +6,12 @@ trigger:
 resources:
 - repo: self
 
-variables:
-  tag: '$(Build.BuildId)'
-
 stages:
 - stage: Build
   displayName: Build image
   jobs:
   - job: Build
     displayName: Build
-    pool:
-      vmImage: ubuntu-latest
+    pool: rpi
     steps:
-    - task: Docker@2
-      inputs:
-        command: 'build'
-        Dockerfile: '**/Dockerfile'
-    - task: Docker@2
-      inputs:
-        command: 'start'
-        arguments: '-e API_TOKEN=$(API_TOKEN)'
-        container: 'magikker'
+      - bash: echo "Hello world"

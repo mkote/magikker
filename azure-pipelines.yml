@@ -14,4 +14,4 @@ stages:
     displayName: Build
     pool: rpi
     steps:
-      - bash: whoami && make build && make run
+      - bash: make build && API_TOKEN=$API_TOKEN make run

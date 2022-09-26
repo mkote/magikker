@@ -15,3 +15,5 @@ stages:
     pool: rpi
     steps:
       - bash: make build && API_TOKEN=$API_TOKEN make run
+        env:
+          API_TOKEN: $(API_TOKEN)

@@ -2,4 +2,4 @@ build:
 	docker build -t magikker . --no-cache
 
 run:
-	./run.sh
+	docker run -d -e API_TOKEN="$(API_TOKEN)" magikker

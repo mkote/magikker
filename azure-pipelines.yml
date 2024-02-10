@@ -12,7 +12,7 @@ stages:
   jobs:
   - job: Build
     displayName: Build
-    pool: rpi
+    pool: tokyo
     steps:
       - bash: make build && API_TOKEN=$API_TOKEN make run
         env:

@@ -13,7 +13,10 @@ stages:
   - job: Build
     displayName: Build
     pool: tokyo
-    steps:
+    steps:      
+      - task: DockerInstaller@0
+        inputs:
+          dockerVersion: '17.09.0-ce'
       - bash: make build && API_TOKEN=$API_TOKEN make run
         env:
           API_TOKEN: $(API_TOKEN)

@@ -14,6 +14,6 @@ stages:
     displayName: Build
     pool: tokyo
     steps:
-      - bash: echo "$kek"; echo "${kek}"; echo "$(kek)"
+      - bash: ip addr
         env:
           kek: $(API_TOKEN)

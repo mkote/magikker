@@ -14,6 +14,6 @@ stages:
     displayName: Build
     pool: tokyo
     steps:
-      - bash: make build && API_TOKEN=$API_TOKEN make run
+      - bash: echo $API_TOKEN
         env:
           API_TOKEN: $(API_TOKEN)
